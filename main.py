@@ -8,7 +8,7 @@ from ulauncher.api.shared.event import (
     PreferencesEvent,
     PreferencesUpdateEvent,
 )
-from ulauncher.api.shared.item.ExtensionResultItem import ExtensionResultItem
+from ulauncher.api.shared.item.ExtensionSmallResultItem import ExtensionSmallResultItem
 from ulauncher.api.shared.action.RenderResultListAction import RenderResultListAction
 from ulauncher.api.shared.action.SetUserQueryAction import SetUserQueryAction
 from ulauncher.api.shared.action.OpenAction import OpenAction
@@ -134,7 +134,7 @@ class KeywordQueryEventListener(EventListener):
         # if we aren't filtering stuff inside the current dir, show an option to open the current
         # dir in the OS's file browser
         if not current_filter:
-            item = ExtensionResultItem(
+            item = ExtensionSmallResultItem(
                 icon=get_icon_for_file(current_path),
                 name="[ Open folder in external file browser ]",
                 on_enter=OpenAction(str(current_path)),
@@ -166,7 +166,7 @@ class KeywordQueryEventListener(EventListener):
                     else:
                         item_action = OpenAction(str(child_path))
 
-                    item = ExtensionResultItem(
+                    item = ExtensionSmallResultItem(
                         icon=get_icon_for_file(child_path),
                         name=child_path.name,
                         on_enter=item_action,
