@@ -2,7 +2,7 @@
   "required_api_version": "^2.0.0",
   "name": "Better file browser",
   "description": "A nicer file browser, easier to navigate and with ability to open folders too. You can limit how many results to show, and wheter to show hidden files or not.",
-  "developer_name": "Fisa (Juan Pedro Fisanotti)",
+  "developer_name": "Fisa (Juan Pedro Fisanotti) Forked by Daniel Lahlafi",
   "icon": "images/icon.png",
   "options": {
     "query_debounce": 0.1

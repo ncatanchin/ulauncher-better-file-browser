@@ -135,9 +135,9 @@ class KeywordQueryEventListener(EventListener):
         # dir in the OS's file browser
         if not current_filter:
             item = ExtensionResultItem(
-                icon=get_icon_for_file(current_path.parent)
-                name="..."
-                on_enter=SetUserQueryAction("{} {}/".format(keyword, str(current_path.parent)))
+                icon=get_icon_for_file(current_path.parent),
+                name="...",
+                on_enter=SetUserQueryAction("{} {}/".format(keyword, str(current_path.parent))),
             )
             items.append(item)
          
