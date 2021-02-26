@@ -135,11 +135,19 @@ class KeywordQueryEventListener(EventListener):
         # dir in the OS's file browser
         if not current_filter:
             item = ExtensionResultItem(
+                icon=get_icon_for_file(current_path.parent)
+                name="..."
+                on_enter=SetUserQueryAction("{} {}/".format(keyword, str(current_path.parent)))
+            )
+            items.append(item)
+         
+            item = ExtensionResultItem(
                 icon=get_icon_for_file(current_path),
                 name="[ Open folder in external file browser ]",
                 on_enter=OpenAction(str(current_path)),
             )
             items.append(item)
+
 
         # children items, filtered, and folders first
         sorted_children = list(sorted(
