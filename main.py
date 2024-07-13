@@ -8,7 +8,7 @@ from ulauncher.api.shared.event import (
     PreferencesEvent,
     PreferencesUpdateEvent,
 )
-from ulauncher.api.shared.item.ExtensionResultItem import ExtensionResultItem
+from ulauncher.api.shared.item.ExtensionSmallResultItem import ExtensionSmallResultItem
 from ulauncher.api.shared.action.RenderResultListAction import RenderResultListAction
 from ulauncher.api.shared.action.SetUserQueryAction import SetUserQueryAction
 from ulauncher.api.shared.action.OpenAction import OpenAction
@@ -140,8 +140,8 @@ class KeywordQueryEventListener(EventListener):
                 on_enter=SetUserQueryAction("{} {}/".format(keyword, str(current_path.parent))),
             )
             items.append(item)
-         
-            item = ExtensionResultItem(
+
+            item = ExtensionSmallResultItem(
                 icon=get_icon_for_file(current_path),
                 name="[ Open folder in external file browser ]",
                 on_enter=OpenAction(str(current_path)),
@@ -174,7 +174,7 @@ class KeywordQueryEventListener(EventListener):
                     else:
                         item_action = OpenAction(str(child_path))
 
-                    item = ExtensionResultItem(
+                    item = ExtensionSmallResultItem(
                         icon=get_icon_for_file(child_path),
                         name=child_path.name,
                         on_enter=item_action,
